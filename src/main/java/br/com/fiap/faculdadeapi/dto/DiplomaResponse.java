@@ -7,6 +7,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class DiplomaResponse {
+    private String id;
     private Sexo sexo;
     private String nome;
 }

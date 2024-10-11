@@ -25,7 +25,7 @@ public class Diplomado {
     @Column(name = "rg")
     private String rg;
 
-    @OneToOne(mappedBy = "diploma")
+    @OneToOne(mappedBy = "diplomado")
     private Diploma diploma;
 
 }

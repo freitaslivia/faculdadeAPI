@@ -21,7 +21,7 @@ public class Curso {
     @Enumerated(EnumType.STRING)
     private TipoCurso tipo;
 
-    @OneToOne(mappedBy = "diploma")
+    @OneToOne(mappedBy = "curso")
     private Diploma diploma;
 
 }

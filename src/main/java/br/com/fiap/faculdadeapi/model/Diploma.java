@@ -5,14 +5,14 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name="tb_diplomado")
+@Table(name="tb_diploma")
 @Getter
 @Setter
 public class Diploma {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private Long id;
+    private String id;
 
     @OneToOne
     @JoinColumn(name = "id")
