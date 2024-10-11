@@ -15,11 +15,11 @@ public class Diploma {
     private String id;
 
     @OneToOne
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "id_diplomado")
     private Diplomado diplomado;
 
-    @OneToOne
-    @JoinColumn(name = "id")
+    @ManyToOne
+    @JoinColumn(name = "id_curso")
     private Curso curso;
 
     @Column(name = "sexo_reitor")

@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
 @Table(name="tb_curso")
 @Getter
@@ -21,7 +23,7 @@ public class Curso {
     @Enumerated(EnumType.STRING)
     private TipoCurso tipo;
 
-    @OneToOne(mappedBy = "curso")
-    private Diploma diploma;
+    @OneToMany(mappedBy = "curso")
+    private List<Diploma> diploma;
 
 }
