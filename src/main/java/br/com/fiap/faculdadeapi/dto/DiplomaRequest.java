@@ -7,6 +7,8 @@ import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Date;
+
 @Getter
 @Setter
 public class DiplomaRequest {
@@ -15,6 +17,14 @@ public class DiplomaRequest {
     private Sexo sexo;
 
     @NotBlank(message = "O nome do reitor é obrigatório.")
-    @Size(min = 20, message = "O nome do reitor deve conter no minimo 20 caracteres.")
+    //@Size(min = 20, message = "O nome do reitor deve conter no minimo 20 caracteres.")
     private String nome;
+
+    private Date dataConclusao;
+
+    @NotNull(message = "diplomado")
+    private Long diplomado;
+    @NotNull(message = "curso")
+    private Long curso;
+
 }

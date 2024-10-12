@@ -10,4 +10,7 @@ public class DiplomaResponse {
     private String id;
     private Sexo sexo;
     private String nome;
+    private Long diplomado;
+    private Long curso;
+
 }

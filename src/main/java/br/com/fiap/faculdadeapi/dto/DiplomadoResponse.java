@@ -11,4 +11,5 @@ public class DiplomadoResponse {
     private String nacionalidade;
     private String naturalidade;
     private String rg;
+
 }

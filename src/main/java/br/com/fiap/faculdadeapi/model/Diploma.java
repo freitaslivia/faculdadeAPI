@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Date;
+import java.util.UUID;
+
 @Entity
 @Table(name="tb_diploma")
 @Getter
@@ -12,7 +15,7 @@ public class Diploma {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private String id;
+    private UUID id;
 
     @OneToOne
     @JoinColumn(name = "id_diplomado")
@@ -28,4 +31,7 @@ public class Diploma {
 
     @Column(name = "nome_reitor")
     private String nome;
+
+    @Column(name = "data_conclusao")
+    private Date dataConclusao;
 }
