@@ -65,16 +65,10 @@ public class DiplomaController {
 
     @PutMapping("/{id}")
     public ResponseEntity<DiplomaResponse> update(@PathVariable UUID id, @Valid @RequestBody DiplomaRequest diplomaRequest) {
-        Optional<Diploma> diplomaPersistido = diplomaRepository.findById(id);
-        if (diplomaPersistido.isPresent()) {
-            Diploma diploma = diplomaService.requestToDiploma(diplomaRequest);
-            diploma.setId(id);
-            Diploma diplomaAtualizado = diplomaRepository.save(diploma);
-            DiplomaResponse diplomaResponse = diplomaService.diplomaToResponse(diplomaAtualizado);
-            return new ResponseEntity<>(diplomaResponse, HttpStatus.OK);
-        }
-        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        DiplomaResponse diplomaResponse = diplomaService.updateDiploma(id, diplomaRequest);
+        return new ResponseEntity<>(diplomaResponse, HttpStatus.OK);
     }
+
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable UUID id) {

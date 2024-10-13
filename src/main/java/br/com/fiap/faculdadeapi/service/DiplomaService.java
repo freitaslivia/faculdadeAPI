@@ -123,4 +123,25 @@ public class DiplomaService {
         return textoDTO;
     }
 
+    public DiplomaResponse updateDiploma(UUID id, DiplomaRequest diplomaRequest) {
+        Diploma diplomaPersistido = diplomaRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Diploma não encontrado"));
+
+        diplomaPersistido.setNome(diplomaRequest.getNome());
+        diplomaPersistido.setSexo(diplomaRequest.getSexo());
+        diplomaPersistido.setDataConclusao(diplomaRequest.getDataConclusao());
+
+        Curso curso = cursoRepository.findById(diplomaRequest.getCurso())
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Curso não encontrado"));
+        diplomaPersistido.setCurso(curso);
+
+        Diplomado diplomado = diplomadoRepository.findById(diplomaRequest.getDiplomado())
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Diplomado não encontrado"));
+        diplomaPersistido.setDiplomado(diplomado);
+
+        Diploma diplomaAtualizado = diplomaRepository.save(diplomaPersistido);
+
+        return diplomaToResponse(diplomaAtualizado);
+    }
+
 }
