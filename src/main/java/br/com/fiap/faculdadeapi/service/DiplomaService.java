@@ -104,9 +104,9 @@ public class DiplomaService {
         textoDTO.setNacionalidade(diplomado.getNacionalidade().toUpperCase());
         textoDTO.setNaturalidade(diplomado.getNaturalidade().toUpperCase());
         textoDTO.setRg(diplomado.getRg().toUpperCase());
-        textoDTO.setTipoCurso(curso.getTipo().toString());
+        textoDTO.setTipoCurso(curso.getTipo().toString().toUpperCase());
         textoDTO.setNomeCurso(curso.getNome().toUpperCase());
-        textoDTO.setDataConclusao(diploma.getDataConclusao().toString().toUpperCase());
+        textoDTO.setDataConclusao(diploma.getDataConclusao().toUpperCase());
 
 
         String sexoReitor = diploma.getSexo().toString().toUpperCase();

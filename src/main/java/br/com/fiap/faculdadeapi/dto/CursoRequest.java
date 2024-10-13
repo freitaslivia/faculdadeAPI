@@ -3,6 +3,7 @@ package br.com.fiap.faculdadeapi.dto;
 import br.com.fiap.faculdadeapi.model.TipoCurso;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;

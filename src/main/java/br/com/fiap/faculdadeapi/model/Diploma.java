@@ -33,5 +33,5 @@ public class Diploma {
     private String nome;
 
     @Column(name = "data_conclusao")
-    private Date dataConclusao;
+    private String dataConclusao;
 }

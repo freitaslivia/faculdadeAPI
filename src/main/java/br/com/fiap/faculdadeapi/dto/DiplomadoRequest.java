@@ -16,7 +16,7 @@ import lombok.Setter;
 public class DiplomadoRequest {
 
     @NotBlank(message = "O nome do diplomado é obrigatório.")
-    //@Size(min = 20, message = "O nome do diplomado deve conter no minimo 20 caracteres.")
+    @Size(min = 5, message = "O nome do diplomado deve conter no minimo 5 caracteres.")
     private String nome;
 
     @NotBlank(message = "A nacionalidade do diplomado é obrigatória.")
@@ -28,7 +28,7 @@ public class DiplomadoRequest {
     private String naturalidade;
 
     @NotBlank(message = "O RG do diplomado é obrigatório.")
-    @Size(min = 9, max = 9,message = "O RG do diplomado deve conter exatamente 9 caracteres.")
+    @Pattern(regexp = "\\d{9}", message = "O RG deve conter 9 números.")
     private String rg;
 
 

@@ -33,17 +33,6 @@ public class DiplomaController {
     @Autowired
     private DiplomadoRepository diplomadoRepository;
 
-/*
-    @PostMapping
-    public ResponseEntity<DiplomaResponse> create(@Valid @RequestBody DiplomaRequest diplomaRequest) {
-        Diploma diplomaConvertido = diplomaService.requestToDiploma(diplomaRequest);
-        Diploma diplomaPersistido = diplomaRepository.save(diplomaConvertido);
-        DiplomaResponse diplomaResponse = diplomaService.diplomaToResponse(diplomaPersistido);
-        return new ResponseEntity<>(diplomaResponse, HttpStatus.CREATED);
-    }
-*/
-
-
     @PostMapping
     public ResponseEntity<DiplomaResponse> create(@Valid @RequestBody DiplomaRequest diplomaRequest) {
         DiplomaResponse diplomaResponse = diplomaService.createDiploma(diplomaRequest);
@@ -63,8 +52,8 @@ public class DiplomaController {
         }
         return new ResponseEntity<>(listaDiplomasResponse, HttpStatus.OK);
     }
-/*
-    @GetMapping("/{id}")
+
+    @GetMapping("/sem-texto/{id}")
     public ResponseEntity<DiplomaResponse> read(@PathVariable UUID id) {
         Optional<Diploma> diploma = diplomaRepository.findById(id);
         if (diploma.isPresent()) {
@@ -73,7 +62,7 @@ public class DiplomaController {
         }
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
-*/
+
     @PutMapping("/{id}")
     public ResponseEntity<DiplomaResponse> update(@PathVariable UUID id, @Valid @RequestBody DiplomaRequest diplomaRequest) {
         Optional<Diploma> diplomaPersistido = diplomaRepository.findById(id);
